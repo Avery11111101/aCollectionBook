@@ -88,6 +88,19 @@ public class CollectionAdminCommand implements CommandExecutor, TabCompleter {
                 sender.sendMessage(net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer.legacySection().deserialize("§7玩家 §e" + args[1] + " §7解鎖總數: §a" + data.getTotalUnlockedCount() + " §7項 (進度: §e" +
                         String.format("%.1f", plugin.getCollectionManager().calculateCompletionPercentage(data)) + "%§7)"));
             }
+            case "version" -> {
+                plugin.getUpdateService().fetchVersionInfo(sender);
+            }
+            case "update" -> {
+                if (args.length == 1 || args[1].equalsIgnoreCase("check")) {
+                    plugin.getUpdateService().checkForUpdates(true, sender, null);
+                } else if (args[1].equalsIgnoreCase("download")) {
+                    String channel = args.length >= 3 ? args[2].toLowerCase() : null;
+                    plugin.getUpdateService().downloadUpdate(channel, sender, null);
+                } else {
+                    sender.sendMessage(net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer.legacySection().deserialize("§c用法: /colladmin update [check | download <release|beta>]"));
+                }
+            }
             default -> sendAdminHelp(sender);
         }
         return true;
@@ -97,6 +110,9 @@ public class CollectionAdminCommand implements CommandExecutor, TabCompleter {
         var legacy = net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer.legacySection();
         sender.sendMessage(legacy.deserialize("§8========== §6圖鑑系統管理員指令幫助 §8=========="));
         sender.sendMessage(legacy.deserialize("§e/colladmin reload §7- 重載設定檔與語言檔"));
+        sender.sendMessage(legacy.deserialize("§e/colladmin version §7- 查看目前版本詳細資訊與更新日誌"));
+        sender.sendMessage(legacy.deserialize("§e/colladmin update [check] §7- 檢查線上最新發布版本"));
+        sender.sendMessage(legacy.deserialize("§e/colladmin update download <release|beta> §7- 下載並更新外掛 Jar 檔"));
         sender.sendMessage(legacy.deserialize("§e/colladmin unlock <玩家> <項目> §7- 強制幫玩家解鎖指定項目"));
         sender.sendMessage(legacy.deserialize("§e/colladmin resetplayer <玩家> §7- 重置指定玩家的圖鑑資料"));
         sender.sendMessage(legacy.deserialize("§e/colladmin resetall §7- 清空全服所有圖鑑資料"));
@@ -109,14 +125,24 @@ public class CollectionAdminCommand implements CommandExecutor, TabCompleter {
         List<String> suggestions = new ArrayList<>();
         if (args.length == 1) {
             suggestions.add("reload");
+            suggestions.add("version");
+            suggestions.add("update");
             suggestions.add("unlock");
             suggestions.add("resetplayer");
             suggestions.add("resetall");
             suggestions.add("check");
-        } else if (args.length == 2 && (args[0].equalsIgnoreCase("unlock") || args[0].equalsIgnoreCase("resetplayer") || args[0].equalsIgnoreCase("check"))) {
-            for (Player p : Bukkit.getOnlinePlayers()) {
-                suggestions.add(p.getName());
+        } else if (args.length == 2) {
+            if (args[0].equalsIgnoreCase("update")) {
+                suggestions.add("check");
+                suggestions.add("download");
+            } else if (args[0].equalsIgnoreCase("unlock") || args[0].equalsIgnoreCase("resetplayer") || args[0].equalsIgnoreCase("check")) {
+                for (Player p : Bukkit.getOnlinePlayers()) {
+                    suggestions.add(p.getName());
+                }
             }
+        } else if (args.length == 3 && args[0].equalsIgnoreCase("update") && args[1].equalsIgnoreCase("download")) {
+            suggestions.add("release");
+            suggestions.add("beta");
         }
         return suggestions;
     }

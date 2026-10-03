@@ -12,6 +12,10 @@ import tw.avery.collection.listener.ItemUnlockListener;
 import tw.avery.collection.listener.MobUnlockListener;
 import tw.avery.collection.manager.CollectionManager;
 import tw.avery.collection.manager.RewardManager;
+import tw.avery.collection.update.UpdateListener;
+import tw.avery.collection.update.UpdateService;
+
+import java.io.File;
 
 public class CollectionBookPlugin extends JavaPlugin {
 
@@ -20,6 +24,7 @@ public class CollectionBookPlugin extends JavaPlugin {
     private DataManager dataManager;
     private CollectionManager collectionManager;
     private RewardManager rewardManager;
+    private UpdateService updateService;
 
     @Override
     public void onEnable() {
@@ -36,11 +41,13 @@ public class CollectionBookPlugin extends JavaPlugin {
         this.dataManager = new DataManager(this);
         this.collectionManager = new CollectionManager(this);
         this.rewardManager = new RewardManager(this);
+        this.updateService = new UpdateService(this);
 
         // 註冊事件監聽器
         Bukkit.getPluginManager().registerEvents(new MobUnlockListener(this), this);
         Bukkit.getPluginManager().registerEvents(new ItemUnlockListener(this), this);
         Bukkit.getPluginManager().registerEvents(new GUIListener(this), this);
+        Bukkit.getPluginManager().registerEvents(new UpdateListener(this, updateService), this);
 
         // 註冊指令
         CollectionCommand collCmd = new CollectionCommand(this);
@@ -58,6 +65,9 @@ public class CollectionBookPlugin extends JavaPlugin {
             getCommand("colladmin").setExecutor(adminCmd);
             getCommand("colladmin").setTabCompleter(adminCmd);
         }
+
+        // 啟動更新檢查
+        updateService.handleStartupCheck();
 
         getLogger().info(" 全能圖鑑系統 CollectionBook 已成功啟動！");
         getLogger().info("==========================================");
@@ -87,9 +97,14 @@ public class CollectionBookPlugin extends JavaPlugin {
         }
     }
 
+    public File getPluginFile() {
+        return getFile();
+    }
+
     public ConfigManager getConfigManager() { return configManager; }
     public LanguageManager getLanguageManager() { return languageManager; }
     public DataManager getDataManager() { return dataManager; }
     public CollectionManager getCollectionManager() { return collectionManager; }
     public RewardManager getRewardManager() { return rewardManager; }
+    public UpdateService getUpdateService() { return updateService; }
 }

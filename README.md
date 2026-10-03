@@ -21,6 +21,9 @@
 - `/collection` (別名: `/mobbook`, `/pokedex`) - 打開圖鑑主選單
 - `/colltop` (別名: `/mobtop`) - 查看圖鑑解鎖排行榜
 - `/colladmin reload` - 重載設定檔與語言檔
+- `/colladmin version` - 查看目前安裝版本與詳細 Release Notes
+- `/colladmin update [check]` - 檢查 GitHub Releases 雙軌更新（正式版與搶先測試版）
+- `/colladmin update download <release|beta>` - 自動自 GitHub 下載並安全替換外掛 Jar 檔
 - `/colladmin unlock <玩家> <項目>` - 為玩家強制解鎖特定項目
 - `/colladmin resetplayer <玩家>` - 重置玩家圖鑑紀錄
 - `/colladmin resetall` - 清空全服圖鑑紀錄
@@ -36,6 +39,11 @@
 3. 重啟伺服器或使用 PlugMan/Paper 載入即可。
 
 ## 更新日誌 (Changelog)
+
+- **v0.1.2 (GitHub Releases 自動更新機制移植)**
+  - 移植並整合 GitHub Releases 雙軌（正式穩定版 / 搶先測試版）自動更新系統。
+  - 支援管理員進服提示、啟動自動檢測、版本 Markdown 排版渲染與熱下載安全替換機制。
+  - 新增 `/colladmin version` 與 `/colladmin update` 相關指令。
 
 - **v0.1.1 (Paper 26.3 Upgrade)**
   - 升級至 Paper MC 26.3 (`26.3.build.140-beta`) 與 Java 25 編譯環境。
