@@ -35,12 +35,12 @@
    ```bash
    mvn clean package
    ```
-2. 將 `target/aCollectionBook-0.1.jar` 放入伺服器的 `plugins/` 資料夾。
+2. 將 `target/aCollectionBook-1.2.0-beta.1.jar` 放入伺服器的 `plugins/` 資料夾。
 3. 重啟伺服器或使用 PlugMan/Paper 載入即可。
 
 ## 更新日誌 (Changelog)
 
-- **v0.1.2 (GitHub Releases 自動更新機制移植)**
+- **v1.2.0-beta.1 (GitHub Releases 雙軌自動更新機制)**
   - 移植並整合 GitHub Releases 雙軌（正式穩定版 / 搶先測試版）自動更新系統。
   - 支援管理員進服提示、啟動自動檢測、版本 Markdown 排版渲染與熱下載安全替換機制。
   - 新增 `/colladmin version` 與 `/colladmin update` 相關指令。
