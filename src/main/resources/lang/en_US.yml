@@ -1,0 +1,104 @@
+# English Language File - en_US.yml
+prefix: "<gray>[<gold>CollectionBook<gray>] "
+
+gui:
+  main:
+    title: "<dark_gray>Server Collection Book"
+    mobs-button: "<gold><bold>Bestiary (Mobs)"
+    mobs-lore:
+      - "<gray>Click to view unlocked mobs and bestiary progress"
+      - ""
+      - "<yellow>▸ Click to open"
+    items-button: "<aqua><bold>Item Codex"
+    items-lore:
+      - "<gray>Click to view unlocked survival resources and items"
+      - ""
+      - "<yellow>▸ Click to open"
+    leaderboard-button: "<yellow><bold>Leaderboard"
+    leaderboard-lore:
+      - "<gray>View Top 10 collection collectors"
+      - ""
+      - "<yellow>▸ Click to open"
+    rewards-button: "<green><bold>Milestone Rewards"
+    rewards-lore:
+      - "<gray>Claim rewards based on completion milestones"
+      - ""
+      - "<yellow>▸ Click to open"
+    progress-title: "<yellow>Personal Completion Progress:"
+    progress-bar-format: "<green>%bar% <yellow>%percent%% <gray>(%unlocked%/%total%)"
+
+  category:
+    mobs-title: "<dark_gray>Bestiary - Page %page%/%max_page%"
+    items-title: "<dark_gray>Item Codex - Page %page%/%max_page%"
+    unlocked-lore:
+      - "<green>✔ Unlocked"
+      - ""
+      - "<gray>Server total: <yellow>%global_count% <gray>unlocked"
+      - "<gray>You are #<aqua>%player_order% <gray>on the server!"
+      - ""
+      - "<yellow>▸ Click to share to chat & Discord"
+    locked-mob-name: "<red>Locked Mob: %name%"
+    locked-mob-lore:
+      - "<dark_gray>(Unlock by slaying, breeding, riding or trading)"
+      - ""
+      - "<gray>Server total: <yellow>%global_count% <gray>unlocked"
+    locked-item-name: "<red>Locked Item: %name%"
+    locked-item-lore:
+      - "<dark_gray>(Unlock by picking up, crafting or smelting)"
+      - ""
+      - "<gray>Server total: <yellow>%global_count% <gray>unlocked"
+    prev-page: "<yellow>◄ Previous"
+    next-page: "<yellow>Next ►"
+    back-main: "<red>Back to Main"
+    filter-button: "<aqua>Filter: <yellow>%mode%"
+    filter-all: "Show All"
+    filter-unlocked: "Unlocked Only"
+    filter-locked: "Locked Only"
+
+  leaderboard:
+    title: "<dark_gray>Collection Leaderboard"
+    entry-name: "<gold>Rank #%rank%: <white>%player%"
+    entry-lore:
+      - "<gray>Total Unlocked: <green>%unlocked% <gray>entries"
+      - "<gray>Completion Rate: <yellow>%percent%%"
+    empty: "<gray>No collection entries unlocked yet."
+
+  rewards:
+    title: "<dark_gray>Milestone Rewards"
+    claimed: "<green>✔ Claimed"
+    claimable: "<yellow>★ Click to Claim Reward!"
+    locked: "<red>✘ Locked (%percent%% / %target%%)"
+    claimed-lore: "<gray>You have already claimed this milestone reward."
+    claimable-lore: "<gray>Reach <yellow>%target%% <gray>progress to claim this reward!"
+
+messages:
+  unlock-mob: "<green>Unlocked Bestiary: <white>%name% <gray>(Server #<yellow>%order%<gray>)!"
+  unlock-item: "<aqua>Unlocked Item Codex: <white>%name% <gray>(Server #<yellow>%order%<gray>)!"
+  legend-broadcast: "<gold>Congratulations! <yellow>%player% <gold>unlocked Legendary %type% [<white>%name%<gold>] (Server #<aqua>%order%<gray>)!"
+  share-broadcast: "<gold>%player% <gray>shared unlocked %type% [<white>%name%<gray>] (Server #<aqua>%order%<gray>)!"
+  reward-claimed-success: "<green>Successfully claimed milestone <yellow>%name%<green> reward!"
+  reward-already-claimed: "<red>You have already claimed this reward!"
+  reward-not-eligible: "<red>You have not reached the required completion rate!"
+  no-permission: "<red>You do not have permission to execute this command!"
+  config-reloaded: "<green>Configuration and language files successfully reloaded!"
+  admin-reset-all: "<red>Reset all server collection data successfully!"
+  admin-reset-player: "<green>Reset collection data for player <yellow>%player%<green>!"
+  admin-unlock-success: "<green>Forced unlock <white>%target% <green>for <yellow>%player%"
+  admin-player-not-found: "<red>Specified player not found!"
+
+discord:
+  username: "Server Collection System"
+  unlock-embed:
+    title: "🏆 Legendary Collection Unlocked!"
+    description: "Player **%player%** unlocked legendary %type% [**`%name%`**]!"
+    color: 16755200
+    field-name: "Server Unlock Order"
+    field-value: "Server #**%order%**!"
+    footer: "Minecraft Server CollectionBook System"
+  share-embed:
+    title: "📜 Player Showcase"
+    description: "Player **%player%** showcased unlocked %type% [**`%name%`**]!"
+    color: 3447003
+    field-name: "Server Unlock Order"
+    field-value: "Server #**%order%**!"
+    footer: "Minecraft Server CollectionBook System"

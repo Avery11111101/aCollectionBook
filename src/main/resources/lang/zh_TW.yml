@@ -1,0 +1,123 @@
+# 繁體中文 (台灣) 語言檔案 - zh_TW.yml
+prefix: "<gray>[<gold>圖鑑<gray>] "
+
+gui:
+  main:
+    title: "<dark_gray>伺服器全能圖鑑系統"
+    mobs-button: "<gold><bold>全生物圖鑑"
+    mobs-lore:
+      - "<gray>點擊查看已解鎖的生物與圖鑑進度"
+      - ""
+      - "<yellow>▸ 點擊進入"
+    items-button: "<aqua><bold>生存物品圖鑑"
+    items-lore:
+      - "<gray>點擊查看已解鎖的生存資源與物品"
+      - ""
+      - "<yellow>▸ 點擊進入"
+    leaderboard-button: "<yellow><bold>全服圖鑑排行榜"
+    leaderboard-lore:
+      - "<gray>查看全服收集進度前 10 名玩家"
+      - ""
+      - "<yellow>▸ 點擊進入"
+    rewards-button: "<green><bold>里程碑成就獎勵"
+    rewards-lore:
+      - "<gray>點擊領取達成特定完成度的成就獎勵"
+      - ""
+      - "<yellow>▸ 點擊進入"
+    progress-title: "<yellow>目前個人圖鑑總完成度:"
+    progress-bar-format: "<green>%bar% <yellow>%percent%% <gray>(%unlocked%/%total%)"
+    global-progress-title: "<gold><bold>全服圖鑑探索總進度"
+    global-progress-lore:
+      - "<gray>全服玩家合計已發現圖鑑數:"
+      - "<green>%bar% <yellow>%percent%% <gray>(%unlocked%/%total%)"
+      - ""
+      - "<gray>全服獨家解鎖生物: <yellow>%mobs% <gray>種"
+      - "<gray>全服獨家解鎖物品: <aqua>%items% <gray>種"
+
+  category:
+    mobs-title: "<dark_gray>全生物圖鑑 - 頁數 %page%/%max_page%"
+    items-title: "<dark_gray>生存物品圖鑑 - 頁數 %page%/%max_page%"
+    inspect-mobs-title: "<dark_gray>%target% 的生物圖鑑 - 頁數 %page%/%max_page%"
+    inspect-items-title: "<dark_gray>%target% 的生存物品圖鑑 - 頁數 %page%/%max_page%"
+    unlocked-item-name: "<green>%name%"
+    unlocked-lore:
+      - "<green>✔ 已解鎖"
+      - ""
+      - "<gray>伺服器已有 <yellow>%global_count% <gray>人解鎖"
+      - "<gray>你是全服第 <aqua>%player_order% <gray>位解鎖的人！"
+      - ""
+      - "<yellow>▸ 點擊分享至聊天室與 Discord"
+    inspect-unlocked-lore:
+      - "<green>✔ 已解鎖"
+      - ""
+      - "<gray>該玩家是全服第 <aqua>%player_order% <gray>位解鎖的人！"
+    locked-mob-name: "<red>未解鎖生物: %name%"
+    locked-item-name: "<red>未解鎖物品: %name%"
+    hidden-locked-name: "<red>??? 未解鎖項目"
+    locked-mob-lore:
+      - "<dark_gray>(可透過擊殺/餵食/騎乘/交易解鎖)"
+      - ""
+      - "<gray>伺服器已有 <yellow>%global_count% <gray>人解鎖"
+    locked-item-lore:
+      - "<dark_gray>(撿起/合成/熔煉該物品即可解鎖)"
+      - ""
+      - "<gray>伺服器已有 <yellow>%global_count% <gray>人解鎖"
+    prev-page: "<yellow>◄ 上一頁"
+    next-page: "<yellow>下一頁 ►"
+    back-main: "<red>返回主選單"
+    filter-button: "<aqua>過濾模式: <yellow>%mode%"
+    filter-all: "顯示全部"
+    filter-unlocked: "僅顯示已解鎖"
+    filter-locked: "僅顯示未解鎖"
+    switch-to-items: "<aqua>▸ 切換為生存物品圖鑑"
+    switch-to-mobs: "<gold>▸ 切換為全生物圖鑑"
+
+  leaderboard:
+    title: "<dark_gray>全服圖鑑收集排行榜"
+    entry-name: "<gold>第 %rank% 名: <white>%player%"
+    entry-lore:
+      - "<gray>解鎖圖鑑總數: <green>%unlocked% <gray>項"
+      - "<gray>完成度: <yellow>%percent%%"
+      - ""
+      - "<yellow>▸ 點擊查看詳細解鎖進度"
+    empty: "<gray>目前尚未有人解鎖任何圖鑑。"
+
+  rewards:
+    title: "<dark_gray>里程碑成就獎勵"
+    claimed: "<green>✔ 已領取"
+    claimable: "<yellow>★ 點擊領取獎勵！"
+    locked: "<red>✘ 尚未達成條件 (%percent%% / %target%%)"
+    claimed-lore: "<gray>您已順利領取此階段獎勵。"
+    claimable-lore: "<gray>達成 <yellow>%target%% <gray>進度即可領取此豐富獎勵！"
+
+messages:
+  unlock-mob: "<green>解鎖新【生物圖鑑】：<white>%name% <gray>(全服第 <yellow>%order% <gray>位解鎖)！"
+  unlock-item: "<aqua>解鎖新【物品圖鑑】：<white>%name% <gray>(全服第 <yellow>%order% <gray>位解鎖)！"
+  legend-broadcast: "<gold>恭喜 <yellow>%player% <gold>成功解鎖傳奇 %type%【<white>%name%<gold>】(全服第 <aqua>%order% <gray>位解鎖)！"
+  share-broadcast: "<gold>%player% <gray>展示了解鎖的 %type%【<white>%name%<gray>】(全服第 <aqua>%order% <gray>位解鎖)！"
+  reward-claimed-success: "<green>成功領取里程碑 <yellow>%name% <green>獎勵！"
+  reward-already-claimed: "<red>您已經領取過該階段獎勵了！"
+  reward-not-eligible: "<red>您尚未達成該階段所需的解鎖進度！"
+  no-permission: "<red>你沒有權限執行此指令！"
+  config-reloaded: "<green>已成功重載圖鑑設定檔與語言檔！"
+  admin-reset-all: "<red>已成功清空全伺服器所有玩家的圖鑑與排行榜紀錄！"
+  admin-reset-player: "<green>已成功重置玩家 <yellow>%player% <green>的所有圖鑑紀錄！"
+  admin-unlock-success: "<green>已強制為玩家 <yellow>%player% <green>解鎖項目：<white>%target%"
+  admin-player-not-found: "<red>找不到指定玩家！"
+
+discord:
+  username: "全能圖鑑成就系統"
+  unlock-embed:
+    title: "🏆 傳奇圖鑑成就解鎖！"
+    description: "玩家 **%player%** 成功解鎖了全新 %type%【**`%name%`**】！"
+    color: 16755200
+    field-name: "全服解鎖順序"
+    field-value: "全服第 **#%order%** 位解鎖！"
+    footer: "Minecraft Server CollectionBook System"
+  share-embed:
+    title: "📜 玩家圖鑑展示"
+    description: "玩家 **%player%** 向大家展示了他已解鎖的 %type%【**`%name%`**】！"
+    color: 3447003
+    field-name: "全服解鎖順序"
+    field-value: "全服第 **#%order%** 位解鎖！"
+    footer: "Minecraft Server CollectionBook System"

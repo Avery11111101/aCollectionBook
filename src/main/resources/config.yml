@@ -1,0 +1,138 @@
+# ========================================================
+# 全能圖鑑系統 (CollectionBook) 核心設定檔
+# ========================================================
+
+# 預設語言 (可填寫 zh_TW 或 en_US，或放入自訂語系檔 lang/xx_XX.yml)
+language: "zh_TW"
+
+# 遊戲內聊天室廣播設定
+broadcast:
+  in-game:
+    # 玩家解鎖傳奇圖鑑時，是否自動發送全服恭喜廣播 (預設：true)
+    legendary-unlock: true
+    # 玩家在 GUI 點擊圖鑑卡片時，是否發送主動展示廣播 (預設：true)
+    player-share: true
+
+# Discord Webhook 通知與分流頻道設定
+discord:
+  # 必須改為 true 才會啟用 Discord Webhook 傳送功能
+  enabled: true
+  
+  # Webhook 頻道網址設定
+  # 通用/預設 Webhook URL (必填，例如："https://discord.com/api/webhooks/...")
+  webhook-url: ""
+  # [分流頻道 1] 玩家解鎖圖鑑/傳奇圖鑑發送頻道 (選填，若留空則自動使用上方通用網址)
+  unlock-webhook-url: ""
+  # [分流頻道 2] 玩家在 GUI 主動點擊展示發送頻道 (選填，若留空則自動使用上方通用網址)
+  share-webhook-url: ""
+
+  # 廣播觸發開關
+  # 1. 玩家解鎖傳奇/稀有圖鑑時，是否自動發送通知至 Discord (預設：true)
+  legendary-unlock: true
+  # 2. 玩家在 GUI 點擊圖鑑卡片時，是否發送主動展示通知至 Discord (預設：true)
+  player-share: true
+  # 3. 是否所有普通物品解鎖都發送至 Discord (預設：false，避免全服撿起物品洗版)
+  all-unlocks: false
+
+  embed-color: 0xFFAA00
+
+# 音效設定 (使用 Spigot/Paper Sound 名稱)
+sounds:
+  enabled: true
+  unlock-mob: "ENTITY_PLAYER_LEVELUP"
+  unlock-item: "ENTITY_EXPERIENCE_ORB_PICKUP"
+  page-change: "ITEM_BOOK_PAGE_TURN"
+  click: "UI_BUTTON_CLICK"
+  share: "BLOCK_NOTE_BLOCK_CHIME"
+  reward-claim: "UI_TOAST_CHALLENGE_COMPLETE"
+
+# 解鎖機制開關
+triggers:
+  mobs:
+    slay: true
+    breed: true
+    ride: true
+    interact: true
+  items:
+    pickup: true
+    craft: true
+    smelt: true
+
+# 隱私與顯示設定
+# 是否顯示未解鎖項目的真實名稱 (若設為 false 則隱藏顯示為 ???)
+show-locked-names: true
+
+# 絕對過濾黑名單（技術方塊與非生存物品）
+blacklist-keywords:
+  - "command"
+  - "test"
+  - "barrier"
+  - "structure"
+  - "light"
+  - "debug"
+  - "jigsaw"
+  - "air"
+  - "bedrock"
+  - "spawner"
+  - "portal"
+  - "farmland"
+  - "dirt_path"
+  - "knowledge"
+  - "petrified"
+  - "budding_amethyst"
+  - "reinforced_deepslate"
+  - "spawn_egg"
+  - "vault"
+  - "trial_spawner"
+  - "infested"
+  - "frogspawn"
+
+# 稀有度分類關鍵字
+rarity:
+  legendary-items:
+    - "netherite"
+    - "elytra"
+    - "totem"
+    - "star"
+    - "dragon"
+    - "enchanted_golden_apple"
+    - "beacon"
+    - "conduit"
+    - "head"
+    - "skull"
+    - "heavy_core"
+  rare-items:
+    - "diamond"
+    - "emerald"
+    - "gold"
+    - "experience"
+    - "sponge"
+    - "shulker"
+    - "trident"
+    - "heart"
+    - "saddle"
+    - "music_disc"
+    - "golden"
+
+# 里程碑獎勵 (百分比解鎖成就)
+milestone-rewards:
+  25:
+    name: "初出茅廬冒險者"
+    exp: 500
+    commands:
+      - "give %player% iron_ingot 16"
+  50:
+    name: "圖鑑收藏大師"
+    exp: 1500
+    commands:
+      - "give %player% diamond 8"
+  75:
+    name: "傳奇探險家"
+    exp: 3000
+    commands:
+      - "give %player% netherite_ingot 2"
+  100:
+    name: "全知全能神"
+    exp: 10000
+    commands:
+      - "give %player% nether_star 1"

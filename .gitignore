@@ -1,0 +1,29 @@
+# Target build output
+target/
+*.jar
+*.war
+*.ear
+*.nar
+
+# IDE & Editor files
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+
+# AI specific documentation / Context memory (Do not push to remote)
+README.AI.md

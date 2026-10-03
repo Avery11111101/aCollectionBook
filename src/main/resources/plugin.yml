@@ -1,0 +1,28 @@
+name: aCollectionBook
+version: 0.1
+main: tw.avery.collection.CollectionBookPlugin
+api-version: '1.20'
+author: Avery
+description: 伺服器全能收集圖鑑系統 Paper 插件 (支援多語言、本地檔案及 Discord Webhook)
+
+commands:
+  collection:
+    description: 開啟全能圖鑑系統 GUI 主選單
+    aliases: [mobbook, pokedex, itembook, coll]
+    permission: collectionbook.use
+  colltop:
+    description: 查看全服圖鑑解鎖排行榜
+    aliases: [mobtop, itemtop]
+    permission: collectionbook.use
+  colladmin:
+    description: 圖鑑系統管理員指令
+    aliases: [collectionadmin]
+    permission: collectionbook.admin
+
+permissions:
+  collectionbook.use:
+    description: 使用圖鑑 GUI 與排行榜指令權限
+    default: true
+  collectionbook.admin:
+    description: 使用圖鑑管理員指令權限
+    default: op
