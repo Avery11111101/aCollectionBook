@@ -1,6 +1,6 @@
 # 全能圖鑑系統 (aCollectionBook) - Paper 插件
 
-一個專為 Paper 1.20.6 / 1.21 (26.2) 伺服器打造的高性能全能圖鑑系統插件。
+一個專為 Paper MC 26.3 (26.3.build.140-beta) / Java 25 伺服器打造的高性能全能圖鑑系統插件。
 
 ## 功能特點
 
@@ -28,9 +28,18 @@
 
 ## 安裝與建置步驟
 
-1. 使用 Maven 進行打包：
+1. 使用 Maven (Java 25) 進行打包：
    ```bash
    mvn clean package
    ```
 2. 將 `target/aCollectionBook-0.1.jar` 放入伺服器的 `plugins/` 資料夾。
 3. 重啟伺服器或使用 PlugMan/Paper 載入即可。
+
+## 更新日誌 (Changelog)
+
+- **v0.1.1 (Paper 26.3 Upgrade)**
+  - 升級至 Paper MC 26.3 (`26.3.build.140-beta`) 與 Java 25 編譯環境。
+  - `plugin.yml` api-version 升級至 `26.1`。
+  - 重構廢棄 API：全面導入 Bukkit 原生 `EntityMountEvent` 與現代 Keyed API (`PotionEffectType.getKey()`)。
+  - 指令系統全面導入 Adventure Component / Serializer，淘汰傳統字串色碼。
+  - 升級網路請求為現代 `URI.create().toURL()` 標準。

@@ -13,7 +13,7 @@
     <description>Paper Minecraft 全能圖鑑系統 - 超強 UX 與多語言支援</description>
 
     <properties>
-        <java.version>21</java.version>
+        <maven.compiler.release>25</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -33,7 +33,7 @@
         <dependency>
             <groupId>io.papermc.paper</groupId>
             <artifactId>paper-api</artifactId>
-            <version>1.20.4-R0.1-SNAPSHOT</version>
+            <version>26.3.build.140-beta</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
@@ -44,10 +44,9 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.11.0</version>
+                <version>3.13.0</version>
                 <configuration>
-                    <source>21</source>
-                    <target>21</target>
+                    <release>25</release>
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>

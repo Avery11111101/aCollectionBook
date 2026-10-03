@@ -8,8 +8,8 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityBreedEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
+import org.bukkit.event.entity.EntityMountEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
-import org.spigotmc.event.entity.EntityMountEvent;
 import tw.avery.collection.CollectionBookPlugin;
 
 public class MobUnlockListener implements Listener {

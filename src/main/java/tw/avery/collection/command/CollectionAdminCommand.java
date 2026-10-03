@@ -53,7 +53,7 @@ public class CollectionAdminCommand implements CommandExecutor, TabCompleter {
             }
             case "resetplayer" -> {
                 if (args.length < 2) {
-                    sender.sendMessage("§c用法: /colladmin resetplayer <玩家名稱>");
+                    sender.sendMessage(net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer.legacySection().deserialize("§c用法: /colladmin resetplayer <玩家名稱>"));
                     return true;
                 }
                 OfflinePlayer target = Bukkit.getOfflinePlayer(args[1]);
@@ -64,7 +64,7 @@ public class CollectionAdminCommand implements CommandExecutor, TabCompleter {
             }
             case "unlock" -> {
                 if (args.length < 3) {
-                    sender.sendMessage("§c用法: /colladmin unlock <玩家名稱> <項目名稱>");
+                    sender.sendMessage(net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer.legacySection().deserialize("§c用法: /colladmin unlock <玩家名稱> <項目名稱>"));
                     return true;
                 }
                 Player target = Bukkit.getPlayer(args[1]);
@@ -80,13 +80,13 @@ public class CollectionAdminCommand implements CommandExecutor, TabCompleter {
             }
             case "check" -> {
                 if (args.length < 2) {
-                    sender.sendMessage("§c用法: /colladmin check <玩家名稱>");
+                    sender.sendMessage(net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer.legacySection().deserialize("§c用法: /colladmin check <玩家名稱>"));
                     return true;
                 }
                 OfflinePlayer target = Bukkit.getOfflinePlayer(args[1]);
                 PlayerData data = plugin.getDataManager().getPlayerData(target.getUniqueId());
-                sender.sendMessage("§7玩家 §e" + args[1] + " §7解鎖總數: §a" + data.getTotalUnlockedCount() + " §7項 (進度: §e" +
-                        String.format("%.1f", plugin.getCollectionManager().calculateCompletionPercentage(data)) + "%§7)");
+                sender.sendMessage(net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer.legacySection().deserialize("§7玩家 §e" + args[1] + " §7解鎖總數: §a" + data.getTotalUnlockedCount() + " §7項 (進度: §e" +
+                        String.format("%.1f", plugin.getCollectionManager().calculateCompletionPercentage(data)) + "%§7)"));
             }
             default -> sendAdminHelp(sender);
         }
@@ -94,13 +94,14 @@ public class CollectionAdminCommand implements CommandExecutor, TabCompleter {
     }
 
     private void sendAdminHelp(CommandSender sender) {
-        sender.sendMessage("§8========== §6圖鑑系統管理員指令幫助 §8==========");
-        sender.sendMessage("§e/colladmin reload §7- 重載設定檔與語言檔");
-        sender.sendMessage("§e/colladmin unlock <玩家> <項目> §7- 強制幫玩家解鎖指定項目");
-        sender.sendMessage("§e/colladmin resetplayer <玩家> §7- 重置指定玩家的圖鑑資料");
-        sender.sendMessage("§e/colladmin resetall §7- 清空全服所有圖鑑資料");
-        sender.sendMessage("§e/colladmin check <玩家> §7- 查詢指定玩家的解鎖進度");
-        sender.sendMessage("§8==========================================");
+        var legacy = net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer.legacySection();
+        sender.sendMessage(legacy.deserialize("§8========== §6圖鑑系統管理員指令幫助 §8=========="));
+        sender.sendMessage(legacy.deserialize("§e/colladmin reload §7- 重載設定檔與語言檔"));
+        sender.sendMessage(legacy.deserialize("§e/colladmin unlock <玩家> <項目> §7- 強制幫玩家解鎖指定項目"));
+        sender.sendMessage(legacy.deserialize("§e/colladmin resetplayer <玩家> §7- 重置指定玩家的圖鑑資料"));
+        sender.sendMessage(legacy.deserialize("§e/colladmin resetall §7- 清空全服所有圖鑑資料"));
+        sender.sendMessage(legacy.deserialize("§e/colladmin check <玩家> §7- 查詢指定玩家的解鎖進度"));
+        sender.sendMessage(legacy.deserialize("§8=========================================="));
     }
 
     @Override

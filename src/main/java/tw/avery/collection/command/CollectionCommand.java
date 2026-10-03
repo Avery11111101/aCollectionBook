@@ -1,5 +1,7 @@
 package tw.avery.collection.command;
 
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -24,7 +26,7 @@ public class CollectionCommand implements CommandExecutor, TabCompleter {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player player)) {
-            sender.sendMessage("[CollectionBook] 此指令僅限遊戲內玩家使用！");
+            sender.sendMessage(Component.text("[CollectionBook] 此指令僅限遊戲內玩家使用！", NamedTextColor.RED));
             return true;
         }
 

@@ -102,7 +102,7 @@ public class ItemUnlockListener implements Listener {
             // 如果是被特定生物 (女巫, 凋零, 巫師) 造成的效果，亦觸發生物圖鑑解鎖
             if (event.getCause() == EntityPotionEffectEvent.Cause.ATTACK || event.getCause() == EntityPotionEffectEvent.Cause.POTION_SPLASH || event.getCause() == EntityPotionEffectEvent.Cause.AREA_EFFECT_CLOUD) {
                 if (event.getNewEffect() != null) {
-                    String typeStr = event.getNewEffect().getType().getName().toLowerCase();
+                    String typeStr = event.getNewEffect().getType().getKey().getKey().toLowerCase();
                     if (typeStr.contains("wither")) {
                         plugin.getCollectionManager().unlockMob(player, "wither_skeleton");
                     } else if (typeStr.contains("poison")) {

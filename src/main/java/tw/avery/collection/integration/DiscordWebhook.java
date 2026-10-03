@@ -4,6 +4,7 @@ import org.bukkit.Bukkit;
 
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
+import java.net.URI;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.CompletableFuture;
@@ -66,7 +67,7 @@ public class DiscordWebhook {
 
         CompletableFuture.runAsync(() -> {
             try {
-                URL url = new URL(webhookUrl.trim());
+                URL url = URI.create(webhookUrl.trim()).toURL();
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                 connection.setRequestMethod("POST");
                 connection.setRequestProperty("Content-Type", "application/json");
